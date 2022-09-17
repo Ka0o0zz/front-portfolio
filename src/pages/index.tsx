@@ -7,14 +7,28 @@ import { Skills } from '@container/Skills'
 import { Testimonials } from '@container/Testimonials'
 import { Navbar } from 'components/Navbar'
 import styles from '@styles/index.module.scss'
+import { sanityClient } from 'helpers/client'
 
-const Home: NextPage = () => {
+
+export async function getStaticProps() {
+  const query = '*[_type == "abouts"]';
+  const abouts = await sanityClient.fetch(query)
+
+  return{
+    props:{
+      abouts
+    }
+  }
+}
+
+
+const Home = ({abouts}:{abouts:TAbout[]}) => {
   return (
     <div className={styles.app}>
       <main>
         <Navbar />
         <Header />
-        <About />
+        <About abouts={abouts}/>
         <Works />
         <Skills />
         <Testimonials />
