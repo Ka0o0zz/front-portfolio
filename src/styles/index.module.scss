@@ -110,6 +110,10 @@
 }
 
 .app__social {
+  position: fixed;
+  bottom: 15px;
+  left: 5px;
+  z-index: 100;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -117,13 +121,14 @@
 
   padding: 1rem;
 
-  div {
+  button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: $white-color;
     margin: 0.25rem 0;
     border: 1px solid $lightGray-color;
+    cursor: pointer;
 
     display: flex;
     justify-content: center;

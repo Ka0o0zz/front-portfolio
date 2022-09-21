@@ -7,9 +7,9 @@ import styles from '@styles/container/About.module.scss'
 import { urlFor } from 'helpers/client';
 
 
-export const About = ({abouts}:{abouts:TAbout[]}) => {
+export const About = ({abouts}:{abouts:TAbouts[]}) => {
   return (  
-    <div>
+    <div id='about' className={styles.app__about}>
       <h2 className={indexStyles.headtext}>
         I Know that <span>Good Design</span> 
         <br />

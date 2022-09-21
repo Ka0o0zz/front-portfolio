@@ -1,8 +1,18 @@
-type TAbout = {
+type TAbouts = {
+        _id: string
+        description: string
+        imgUrl: any
+        title: string
+}
+
+type TWorks ={
     _id: string
     description: string
     imgUrl: any
-    title: string
+    title: string,
+    codeLink: string,
+    projectLink: string,
+    tags:array
 }
 
 type TConfigSanity = {

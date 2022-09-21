@@ -8,28 +8,35 @@ import { Testimonials } from '@container/Testimonials'
 import { Navbar } from 'components/Navbar'
 import styles from '@styles/index.module.scss'
 import { sanityClient } from 'helpers/client'
+import { SocialMedia } from 'components/SocialMedia'
 
 
 export async function getStaticProps() {
-  const query = '*[_type == "abouts"]';
-  const abouts = await sanityClient.fetch(query)
+  const queryAbouts = '*[_type == "abouts"]';
+  const queryWorks = '*[_type == "works"]';
+
+
+  const abouts = await sanityClient.fetch(queryAbouts)
+  const works = await sanityClient.fetch(queryWorks)
 
   return{
     props:{
-      abouts
+      abouts,
+      works
     }
   }
 }
 
 
-const Home = ({abouts}:{abouts:TAbout[]}) => {
+const Home = ({abouts, works}:{abouts:TAbouts[], works:TWorks[]}) => {
   return (
     <div className={styles.app}>
       <main>
+        <SocialMedia />
         <Navbar />
         <Header />
         <About abouts={abouts}/>
-        <Works />
+        <Works works={works}/>
         <Skills />
         <Testimonials />
         <Footer />
